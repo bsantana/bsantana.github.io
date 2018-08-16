@@ -10,9 +10,10 @@ firebase.initializeApp(config);
 
 // Retrieve Firebase Messaging object.
 const messaging = firebase.messaging();
+const publicVapidKey = "BLzLRodL6QJW6SgclmJyzb9BafyT1GkYcO1UBPKYILutKjjQPT__HZCbqun2apBTENQ_jNfOoCZj5XCNfBHazmg";
 
 // Add the public key generated from the console here.
-messaging.usePublicVapidKey("BLzLRodL6QJW6SgclmJyzb9BafyT1GkYcO1UBPKYILutKjjQPT__HZCbqun2apBTENQ_jNfOoCZj5XCNfBHazmg");
+messaging.usePublicVapidKey(publicVapidKey);
 
 messaging.requestPermission().then(function() {
     console.log('Notification permission granted.');
