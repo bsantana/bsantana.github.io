@@ -69,16 +69,16 @@ messaging.onMessage(function(payload) {
     // ...
 });
 
-messaging.setBackgroundMessageHandler(function(payload) {
-    console.log('[firebase-messaging-sw.js] Received background message ', payload);
-    // Customize notification here
-    var notificationTitle = 'Background Message Title';
-    var notificationOptions = {
-      body: 'Background Message body.',
-      icon: 'https://firebase.google.com/_static/73fc042828/images/firebase/lockup.png?authuser=0'
-    };
+// messaging.setBackgroundMessageHandler(function(payload) {
+//     console.log('[firebase-messaging-sw.js] Received background message ', payload);
+//     // Customize notification here
+//     var notificationTitle = 'Background Message Title';
+//     var notificationOptions = {
+//       body: 'Background Message body.',
+//       icon: 'https://firebase.google.com/_static/73fc042828/images/firebase/lockup.png?authuser=0'
+//     };
   
-    return self.registration.showNotification(notificationTitle,
-      notificationOptions);
-});
+//     return self.registration.showNotification(notificationTitle,
+//       notificationOptions);
+// });
   
