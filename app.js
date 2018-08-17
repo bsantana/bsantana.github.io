@@ -59,3 +59,26 @@ messaging.getToken().then(function(currentToken) {
     // showToken('Error retrieving Instance ID token. ', err);
     // setTokenSentToServer(false);
 });
+
+// Handle incoming messages. Called when:
+// - a message is received while the app has focus
+// - the user clicks on an app notification created by a service worker
+//   `messaging.setBackgroundMessageHandler` handler.
+messaging.onMessage(function(payload) {
+    console.log('Message received. ', payload);
+    // ...
+});
+
+messaging.setBackgroundMessageHandler(function(payload) {
+    console.log('[firebase-messaging-sw.js] Received background message ', payload);
+    // Customize notification here
+    var notificationTitle = 'Background Message Title';
+    var notificationOptions = {
+      body: 'Background Message body.',
+      icon: 'https://firebase.google.com/_static/73fc042828/images/firebase/lockup.png?authuser=0'
+    };
+  
+    return self.registration.showNotification(notificationTitle,
+      notificationOptions);
+});
+  
